@@ -38,6 +38,7 @@ const BountyCard = () => {
   const cakePriceBusd = usePriceCakeBusd()
 
   const estimatedDollarBountyReward = useMemo(() => {
+
     return new BigNumber(estimatedCakeBountyReward).multipliedBy(cakePriceBusd)
   }, [cakePriceBusd, estimatedCakeBountyReward])
 
@@ -45,6 +46,7 @@ const BountyCard = () => {
   const hasFetchedCakeBounty = estimatedCakeBountyReward ? estimatedCakeBountyReward.gte(0) : false
   const dollarBountyToDisplay = hasFetchedDollarBounty ? getBalanceNumber(estimatedDollarBountyReward, 18) : 0
   const cakeBountyToDisplay = hasFetchedCakeBounty ? getBalanceNumber(estimatedCakeBountyReward, 18) : 0
+
 
   const TooltipComponent = () => (
     <>
