@@ -35,11 +35,21 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     label: t('Farms'),
     icon: 'FarmIcon',
     href: '/farms',
+    status: 
+      {
+        text: 'COMING SOON',
+        color: "warning",
+      },
   },
   {
     label: t('Staking'),
     icon: 'PoolIcon',
     href: '/pools',
+    status: 
+      {
+        text: 'COMING SOON',
+        color: "warning",
+      },
   },
   // {
   //   label: t('Prediction (BETA)'),
@@ -112,19 +122,19 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     items: [
       {
         label: t('Contact'),
-        href: 'https://docs.pancakeswap.finance/contact-us',
+        href: 'https://t.me/USEON',
       },
       // {
       //   label: t('Voting'),
       //   href: 'https://voting.pancakeswap.finance',
       // },
-      {
-        label: t('Github'),
-        href: 'https://github.com/pancakeswap',
-      },
+      // {
+      //   label: t('Github'),
+      //   href: 'https://github.com/pancakeswap',
+      // },
       {
         label: t('Docs'),
-        href: 'https://docs.pancakeswap.finance',
+        href: 'https://docs.useon.app/',
       },
       // {
       //   label: t('Blog'),

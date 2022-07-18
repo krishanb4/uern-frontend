@@ -21,6 +21,7 @@ const Trade = lazy(() => import('./views/Trade'))
 const Lottery = lazy(() => import('./views/Lottery'))
 const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
+const ComingSoon = lazy(() => import('./views/ComingSoon'))
 const Collectibles = lazy(() => import('./views/Collectibles'))
 const Teams = lazy(() => import('./views/Teams'))
 const Team = lazy(() => import('./views/Teams/Team'))
@@ -54,10 +55,12 @@ const App: React.FC = () => {
               <Home />
             </Route>
             <Route path="/farms">
-              <Farms />
+              <ComingSoon />
+              {/* <Farms /> */}
             </Route>
             <Route path="/pools">
-              <Pools />
+              <ComingSoon />
+              {/* <Pools /> */}
             </Route>
             <Route path="/trade">
               <Trade />
