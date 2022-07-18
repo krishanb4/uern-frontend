@@ -23,7 +23,7 @@ const Menu = (props) => {
       login={login}
       logout={logout}
       // isDark={isDark}
-      toggleTheme={toggleTheme}
+      // toggleTheme={toggleTheme}
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
