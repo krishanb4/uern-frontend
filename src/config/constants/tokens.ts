@@ -10,7 +10,7 @@ const tokens = {
       97: '',
     },
     decimals: 18,
-    projectLink: 'https://pancakeswap.finance/',
+    projectLink: 'https://useon.app/',
   },
   txl: {
     symbol: 'TXL',
@@ -577,7 +577,7 @@ const tokens = {
       97: '',
     },
     decimals: 18,
-    projectLink: 'https://compound.finance/',
+    projectLink: 'https://useon.app/',
   },
   syrup: {
     symbol: 'SYRUP',

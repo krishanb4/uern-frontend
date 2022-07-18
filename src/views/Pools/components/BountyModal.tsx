@@ -49,10 +49,12 @@ const BountyModal: React.FC<BountyModalProps> = ({
     tooltipPadding: { right: 15 },
   })
 
+  const DEFAULT_GAS_LIMIT_BOUNTY = 1050000
+
   const handleConfirmClick = async () => {
     cakeVaultContract.methods
       .harvest()
-      .send({ from: account, gas: DEFAULT_GAS_LIMIT })
+      .send({ from: account, gas: DEFAULT_GAS_LIMIT_BOUNTY })
       .on('sending', () => {
         setPendingTx(true)
       })
