@@ -23,6 +23,14 @@ const GlobalStyle = createGlobalStyle`
       height: auto;
       max-width: 100%;
     }
+    .top-logo{
+      width: 130px;
+    }
+    @media only screen and (max-width:700px) {
+                .top-logo {
+                    width: 120px;
+                }
+            }
   }
 `
 
