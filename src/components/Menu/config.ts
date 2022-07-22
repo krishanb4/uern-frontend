@@ -37,8 +37,8 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     href: '/farms',
     status: 
       {
-        text: 'COMING SOON',
-        color: "warning",
+        text: 'NEW',
+        color: "success",
       },
   },
   {
@@ -47,8 +47,8 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     href: '/pools',
     status: 
       {
-        text: 'COMING SOON',
-        color: "warning",
+        text: 'NEW',
+        color: "success",
       },
   },
   // {

@@ -95,7 +95,7 @@ const Hero = () => {
           </LinkExternal>
         </LeftWrapper>
         <RightWrapper>
-          <img src="/images/just_icon.png" alt="mcdao logo" width="30%" />
+          <img src="/images/just_icon.png" alt="useon logo" width="30%" />
         </RightWrapper>
       </StyledContainer>
     </StyledHero>

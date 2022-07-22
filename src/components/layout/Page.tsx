@@ -29,9 +29,9 @@ const PageMeta = () => {
   const cakePriceUsd = usePriceCakeBusd()
   const cakePriceUsdDisplay = cakePriceUsd.gt(0)
     ? `$${cakePriceUsd.toNumber().toLocaleString(undefined, {
-        minimumFractionDigits: 3,
-        maximumFractionDigits: 3,
-      })}`
+      minimumFractionDigits: 6,
+      maximumFractionDigits: 6,
+    })}`
     : ''
 
   const pageMeta = getCustomMeta(pathname, t) || {}

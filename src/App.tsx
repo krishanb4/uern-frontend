@@ -55,12 +55,12 @@ const App: React.FC = () => {
               <Home />
             </Route>
             <Route path="/farms">
-              <ComingSoon />
-              {/* <Farms /> */}
+              {/* <ComingSoon /> */}
+              <Farms />
             </Route>
             <Route path="/pools">
-              <ComingSoon />
-              {/* <Pools /> */}
+              {/* <ComingSoon /> */}
+              <Pools />
             </Route>
             <Route path="/trade">
               <Trade />
@@ -68,9 +68,9 @@ const App: React.FC = () => {
             {/* <Route path="/lottery">
               <Lottery />
             </Route> */}
-            {/* <Route path="/ifo">
+            <Route path="/ifo">
               <Ifos />
-            </Route> */}
+            </Route>
             {/* <Route path="/collectibles">
               <Collectibles />
             </Route>
