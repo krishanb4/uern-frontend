@@ -48,6 +48,7 @@ const ControlStretch = styled(Flex)`
   }
 `
 
+
 const NUMBER_OF_POOLS_VISIBLE = 12
 
 const Pools: React.FC = () => {
@@ -104,6 +105,7 @@ const Pools: React.FC = () => {
   usePollFarmsData()
   useFetchCakeVault()
   useFetchPublicPoolsData()
+
 
   useEffect(() => {
     const showMorePools = (entries) => {
@@ -292,5 +294,8 @@ const Pools: React.FC = () => {
     </>
   )
 }
+
+
+
 
 export default Pools

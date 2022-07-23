@@ -127,6 +127,9 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100
   const isManualCakePool = sousId === 0
 
+
+
+
   const getTotalStakedBalance = () => {
     if (isAutoVault) {
       return getBalanceNumber(totalCakeInVault, stakingToken.decimals)
@@ -137,6 +140,9 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
     }
     return getBalanceNumber(totalStaked, stakingToken.decimals)
   }
+
+
+
 
   const {
     targetRef: totalStakedTargetRef,
@@ -191,6 +197,8 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
     </Flex>
   )
 
+
+
   const totalStakedRow = (
     <Flex justifyContent="space-between" alignItems="center" mb="8px">
       <Text maxWidth={['50px', '100%']}>{t('Total staked')}</Text>
@@ -211,7 +219,9 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
   )
 
   return (
+
     <StyledActionPanel expanded={expanded}>
+
       <InfoSection>
         {maxStakeRow}
         {(isXs || isSm) && aprRow}

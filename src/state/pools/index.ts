@@ -43,10 +43,18 @@ const initialState: PoolsState = {
   },
 }
 
+export const totalStakedFortvl = () => {
+  const totalStaking = fetchPoolsTotalStaking()
+  return totalStaking;
+}
+
 // Thunks
 export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispatch, getState) => {
   const blockLimits = await fetchPoolsBlockLimits()
   const totalStakings = await fetchPoolsTotalStaking()
+
+  
+  
 
   const prices = getTokenPricesFromFarm(getState().farms.data)
 
@@ -72,7 +80,7 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
         )
       : 0
 
-
+       
     return {
       ...blockLimit,
       ...totalStaking,

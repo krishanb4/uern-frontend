@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Card, CardBody, Heading, Skeleton, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { useGetStats } from 'hooks/api'
+import { usePriceCakeBusd } from 'state/hooks'
+import { totalStakedFortvl } from '../../../state/pools/index'
+import { FarmsStaked } from '../../Farms/Farms'
 
 const StyledTotalValueLockedCard = styled(Card)`
   align-items: center;
@@ -14,8 +17,27 @@ const TotalValueLockedCard = () => {
   const { t } = useTranslation()
   const data = useGetStats()
 
+  const [poolsusern, setPoolsuerm] = useState(0)
 
-  const tvl = data ? data.tvl.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
+  async function fetchTotalStaked() {
+    const tvlpools = await totalStakedFortvl();
+    setPoolsuerm(Number(tvlpools[0].totalStaked) / 10 ** 18)
+
+
+  }
+
+  const lppool1 = Number(FarmsStaked()[0].liquidity.liquidity);
+  const lppool2 = Number(FarmsStaked()[1].liquidity.liquidity);
+
+  const lptotal = lppool1 + lppool2;
+
+
+  const uernPrice = usePriceCakeBusd();
+
+  fetchTotalStaked();
+
+
+  const tvl = (poolsusern * Number(uernPrice) + lptotal).toFixed(3);
 
   return (
     <StyledTotalValueLockedCard>

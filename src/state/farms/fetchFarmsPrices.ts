@@ -1,7 +1,10 @@
 import BigNumber from 'bignumber.js'
-import { BIG_ONE, BIG_ZERO } from 'utils/bigNumber'
+import { BIG_ONE, BIG_ZERO, BIG_TEN } from 'utils/bigNumber'
 import { filterFarmsByQuoteToken } from 'utils/farmsPriceHelpers'
 import { Farm } from 'state/types'
+import chainlinkABI from 'config/abi/chainlinkOracle.json'
+import multicall from 'utils/multicall'
+import { getChainlinkOracleAddress } from 'utils/addressHelpers'
 
 const getFarmFromTokenSymbol = (farms: Farm[], tokenSymbol: string, preferredQuoteTokens?: string[]): Farm => {
   const farmsWithTokenSymbol = farms.filter((farm) => farm.token.symbol === tokenSymbol)
@@ -74,11 +77,16 @@ const getFarmQuoteTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: 
 
 const fetchFarmsPrices = async (farms) => {
   const bnbBusdFarm = farms.find((farm: Farm) => farm.pid === 2)
-  
-  
-  const bnbPriceBusd = bnbBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(bnbBusdFarm.tokenPriceVsQuote) : BIG_ZERO
-  
-  
+
+  // const bnbPriceBusd = bnbBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(bnbBusdFarm.tokenPriceVsQuote) : BIG_ZERO
+
+  const [rawOraclePrice, rawOracleDecimals] = await multicall(chainlinkABI, [
+    { address: getChainlinkOracleAddress(), name: 'latestAnswer', params: [] },
+    { address: getChainlinkOracleAddress(), name: 'decimals', params: [] },
+  ])
+  const bnbPriceBusd = rawOraclePrice
+    ? new BigNumber(rawOraclePrice).dividedBy(BIG_TEN.pow(rawOracleDecimals))
+    : BIG_ZERO
 
   const farmsWithPrices = farms.map((farm) => {
     const quoteTokenFarm = getFarmFromTokenSymbol(farms, farm.quoteToken.symbol)
