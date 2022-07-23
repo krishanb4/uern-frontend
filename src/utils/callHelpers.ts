@@ -53,7 +53,7 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
   if (pid === 0) {
     return masterChefContract.methods
       .leaveStaking(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
-      .send({ from: account, gas: DEFAULT_GAS_LIMIT })
+      .send({ from: account, gas: DEFAULT_GAS_LIMIT ,gasPrice: ethers.utils.parseUnits('7', 'gwei')})
       .on('transactionHash', (tx) => {
         return tx.transactionHash
       })
